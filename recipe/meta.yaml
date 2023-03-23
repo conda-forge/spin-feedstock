@@ -1,5 +1,5 @@
 {% set name = "spin" %}
-{% set version = "0.2" %}
+{% set version = "0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spin-{{ version }}.tar.gz
-  sha256: 15d7e7faee40edf7d63798ec91195fd5e74706912bb7aea9dc65f4381b5e10a6
+  sha256: 3f20f1d19e0153832804891eec3f3691effd2d1def95bdd6c0c4b97cb41a0a1f
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -15,8 +15,8 @@ build:
   noarch: python
   # You NEED to include the platform in the build string to avoid hash collisions
   # https://github.com/conda-forge/conda-forge.github.io/pull/1839#discussion_r1008679066
-  string: "unix_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"  # [unix]
-  string: "win_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"   # [win]
+  string: unix_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [unix]
+  string: win_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [win]
 
 requirements:
   host:
