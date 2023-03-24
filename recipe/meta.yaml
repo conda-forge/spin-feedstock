@@ -37,7 +37,8 @@ test:
     - spin
   commands:
     - pip check
-    - spin --help
+    # Error: cannot find [pyproject.toml]
+    # - spin --help
   requires:
     - pip
 
