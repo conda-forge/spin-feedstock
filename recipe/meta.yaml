@@ -1,5 +1,5 @@
 {% set name = "spin" %}
-{% set version = "0.5" %}
+{% set version = "0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spin-{{ version }}.tar.gz
-  sha256: deac3178572c9306fb383d40a4403d2857aa01a8a69de223fff9c66d06b23f40
+  sha256: 5a7d5688f8995cf4aa9b2c0c0d339a68db2432ad850fd2e879276f62ba081a08
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
