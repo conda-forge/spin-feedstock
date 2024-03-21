@@ -22,10 +22,10 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
     - pip
   run:
-    - python >=3.7
+    - python >=3.8
     - click
     - toml
     - colorama  # [win]
@@ -51,3 +51,5 @@ about:
 extra:
   recipe-maintainers:
     - hmaarrfk
+    - stefanv
+    - rgommers
