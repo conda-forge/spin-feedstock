@@ -1,5 +1,5 @@
 {% set name = "spin" %}
-{% set version = "0.8" %}
+{% set version = "0.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spin-{{ version }}.tar.gz
-  sha256: 27c39a3f3eefcf448566b01f5ae434bbf125f027ab8567841c5129f79445c439
+  sha256: 29198db193213aa52dd3c8cb139c1bec84e3824dbaf02c9b36290b99a8f2d09e
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -28,6 +28,7 @@ requirements:
     - python >=3.8
     - click
     - toml
+    - importlib-metadata
     - colorama  # [win]
     - __unix  # [unix]
     - __win   # [win]
