@@ -28,6 +28,7 @@ requirements:
     - python >=3.8
     - click
     - toml
+    - importlib-metadata
     - colorama  # [win]
     - __unix  # [unix]
     - __win   # [win]
