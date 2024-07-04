@@ -27,7 +27,7 @@ requirements:
   run:
     - python >=3.8
     - click
-    - toml
+    - tomli
     - importlib-metadata
     - colorama  # [win]
     - __unix  # [unix]
