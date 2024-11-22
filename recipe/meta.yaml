@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spin-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/spin-{{ version }}.tar.gz
   sha256: 4f00a9f3a91ee1adfeed553a4dfd37015bf54481161bcdaabff6ec6d5bbf5ffe
 
 build:
