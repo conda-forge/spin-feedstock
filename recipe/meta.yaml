@@ -1,13 +1,13 @@
 {% set name = "spin" %}
-{% set version = "0.12" %}
+{% set version = "0.13" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spin-{{ version }}.tar.gz
-  sha256: 5d8ddb8fcc116b25fdee36e88fceeece68203511c00012f892d9736c5cffe3eb
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/spin-{{ version }}.tar.gz
+  sha256: 4f00a9f3a91ee1adfeed553a4dfd37015bf54481161bcdaabff6ec6d5bbf5ffe
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -22,10 +22,11 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - click
     - tomli
     - importlib-metadata >=7.0
@@ -41,6 +42,7 @@ test:
     # Error: cannot find [pyproject.toml]
     # - spin --help
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
