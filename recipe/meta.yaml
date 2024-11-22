@@ -22,11 +22,11 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - click
     - tomli
     - importlib-metadata >=7.0
@@ -42,6 +42,7 @@ test:
     # Error: cannot find [pyproject.toml]
     # - spin --help
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
