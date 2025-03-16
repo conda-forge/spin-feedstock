@@ -11,12 +11,8 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
-  # You NEED to include the platform in the build string to avoid hash collisions
-  # https://github.com/conda-forge/conda-forge.github.io/pull/1839#discussion_r1008679066
-  string: unix_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [unix]
-  string: win_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [win]
   entry_points:
     - spin = spin.__main__:main
 
@@ -56,3 +52,4 @@ extra:
     - hmaarrfk
     - stefanv
     - rgommers
+    - lucascolley
