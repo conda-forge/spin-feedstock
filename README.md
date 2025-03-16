@@ -144,6 +144,7 @@ Feedstock Maintainers
 =====================
 
 * [@hmaarrfk](https://github.com/hmaarrfk/)
+* [@lucascolley](https://github.com/lucascolley/)
 * [@rgommers](https://github.com/rgommers/)
 * [@stefanv](https://github.com/stefanv/)
 
