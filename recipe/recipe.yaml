@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: spin
-  version: "0.14"
+  version: "0.15"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/spin-${{ version }}.tar.gz
-  sha256: 1a5f6ce53699ef58bf893970ecb9d7f8814a8ca08da5d26e1391fe2a9fa04bcc
+  sha256: c53824679cef67b87183962e38028fb2ed59f33e7dfdc8b96be684bc8698e238
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
   python:
