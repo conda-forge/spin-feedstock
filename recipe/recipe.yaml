@@ -38,7 +38,7 @@ requirements:
     # This line can be uncommented when noarch python is used again
     # - python >=${{ python_min }}
     - python
-    - if: python <3.11
+    - if: ${{ python }} <3.11
       then: click >=8, <8.2
       else: click >=8,!=8.3.0,<8.4
     - tomli
