@@ -1,6 +1,13 @@
 noarch_platforms:
   - linux_64
   - win_64
+build_platform:
+  linux_aarch64: linux_64
+  linux_ppc64le: linux_64
+  osx_arm64: osx_64
+provider:
+  linux_aarch64: azure
+  linux_ppc64le: azure
 github:
   branch_name: main
   tooling_branch_name: main
