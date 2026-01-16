@@ -13,35 +13,50 @@ source:
   sha256: ce62fb15fd225cde2601a4c969807557d34e461cbc6575c6bbe1a4502ea0dca6
 
 build:
-  number: 0
-  noarch: python
+  number: 1
+  # package cannot be noarch since there is a python version based dependency
+  # noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
   python:
     entry_points:
       - spin = spin.__main__:main
 
 requirements:
+  build:
+    # This section can be removed when noarch python is used again
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
   host:
-    - python ${{ python_min }}.*
+    # This line can be uncommented when noarch python is used again
+    # - python ${{ python_min }}.*
+    - python
     - pip
     - setuptools
   run:
-    - python >=${{ python_min }}
-    - click >=8, <8.2
+    # This line can be uncommented when noarch python is used again
+    # - python >=${{ python_min }}
+    - python
+    - if: python <3.12
+      then: click >=8, <8.2
+      else: click >=8,!=8.3.0,<8.4
     - tomli
     - importlib-metadata >=7.0
     - if: win
       then: colorama
-    - if: unix
-      then: __unix
-    - if: win
-      then: __win
+    # These lines can be uncommented when noarch python is used again
+    # - if: unix
+    #   then: __unix
+    # - if: win
+    #   then: __win
 
 tests:
   - python:
       imports:
         - spin
-      python_version: ${{ python_min }}.*
+      # This line can be uncommented when noarch python is used again
+      # python_version: ${{ python_min }}.*
   - requirements:
       run:
         - python ${{ python_min }}.*
