@@ -13,7 +13,7 @@ source:
   sha256: ce62fb15fd225cde2601a4c969807557d34e461cbc6575c6bbe1a4502ea0dca6
 
 build:
-  number: 1
+  number: 2
   # package cannot be noarch since there is a python version based dependency
   # noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
