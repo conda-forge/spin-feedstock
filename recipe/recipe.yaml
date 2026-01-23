@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: spin
-  version: "0.16"
+  version: "0.17"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/spin-${{ version }}.tar.gz
-  sha256: ce62fb15fd225cde2601a4c969807557d34e461cbc6575c6bbe1a4502ea0dca6
+  sha256: b8583e46361d4fd32b584cdeede9ffe5aa220f7cb2c6fc7e8f7ca16550b4ab62
 
 build:
-  number: 2
+  number: 0
   # package cannot be noarch since there is a python version based dependency
   # noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
