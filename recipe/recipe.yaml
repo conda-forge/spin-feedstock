@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: spin
-  version: "0.16"
+  version: "0.17"
 
 package:
   name: ${{ name|lower }}
@@ -10,56 +10,41 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/spin-${{ version }}.tar.gz
-  sha256: ce62fb15fd225cde2601a4c969807557d34e461cbc6575c6bbe1a4502ea0dca6
+  sha256: b8583e46361d4fd32b584cdeede9ffe5aa220f7cb2c6fc7e8f7ca16550b4ab62
 
 build:
-  number: 2
-  # package cannot be noarch since there is a python version based dependency
-  # noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv
+  number: 0
+  noarch: python
+  script: uv pip install --python ${{ PYTHON }} . -vv --no-deps --no-build-isolation
   python:
     entry_points:
       - spin = spin.__main__:main
 
 requirements:
-  build:
-    # This section can be removed when noarch python is used again
-    - if: build_platform != target_platform
-      then:
-        - python
-        - cross-python_${{ target_platform }}
   host:
-    # This line can be uncommented when noarch python is used again
-    # - python ${{ python_min }}.*
-    - python
-    - pip
+    - python ${{ python_min }}.*
+    - uv
     - setuptools
   run:
-    # This line can be uncommented when noarch python is used again
-    # - python >=${{ python_min }}
-    - python
-    - if: match(python, "<3.11")
-      then: click >=8, <8.2
-      else: click >=8,!=8.3.0,<8.4
+    - python >=${{ python_min }}
+    - click >=8,!=8.3.0,<8.4
     - tomli
     - importlib-metadata >=7.0
     - if: win
       then: colorama
-    # These lines can be uncommented when noarch python is used again
-    # - if: unix
-    #   then: __unix
-    # - if: win
-    #   then: __win
+    - if: unix
+      then: __unix
+    - if: win
+      then: __win
 
 tests:
   - python:
       imports:
         - spin
-      # This line can be uncommented when noarch python is used again
-      # python_version: ${{ python_min }}.*
+      python_version: ${{ python_min }}.*
   - requirements:
       run:
-        # - python ${{ python_min }}.*
+        - python ${{ python_min }}.*
         - pip
     script:
       - pip check
