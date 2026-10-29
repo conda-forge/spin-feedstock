@@ -27,7 +27,7 @@ requirements:
     - setuptools
   run:
     - python >=${{ python_min }}
-    - click >=8,!=8.3.0,<8.4
+    - click >=8,!=8.3.0,<8.6
     - tomli
     - importlib-metadata >=7.0
     - if: win
