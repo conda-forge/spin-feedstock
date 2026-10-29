@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: spin
-  version: "0.18"
+  version: "0.19"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/spin-${{ version }}.tar.gz
-  sha256: 1c8e8d1d67f20f9bfce0bbe43cff4131d728de4d1905d90ee3d8b29b17320006
+  sha256: 708b81ccb578dbe8d83458a3dd240a5801c5922576ec1e0f78483f3e5e212b7e
 
 build:
-  number: 3
+  number: 0
   noarch: python
   script: uv pip install --python ${{ PYTHON }} . -vv --no-deps --no-build-isolation
   python:
@@ -27,7 +27,7 @@ requirements:
     - setuptools
   run:
     - python >=${{ python_min }}
-    - click >=8,!=8.3.0,<8.4
+    - click >=8,!=8.3.0,<8.6
     - tomli
     - importlib-metadata >=7.0
     - if: win
